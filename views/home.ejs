@@ -102,8 +102,9 @@
             document.getElementById('submit').setAttribute('onclick', `adding('${id}')`);
         });
     }
-    function deleteing(id) {
-
+    function deleting(id) {
+        $.get('/delete?id=' + id);
+        document.getElementById(id).innerHTML = '';
     }
 
 </script>

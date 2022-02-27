@@ -50,3 +50,10 @@ app.get('/user', (req, resp) => {
         resp.send(res);
     });
 })
+
+app.get('/delete', (req, resp) => {
+    const id = req.query.id;
+    User.findByIdAndDelete(id, (err, res) => {
+        resp.sendStatus(200);
+    });
+})
