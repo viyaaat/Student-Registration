@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Student Registration</h1>
+    <form class="form">
+        <label for="name">Name : </label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="roll">Roll No. : </label>
+        <input type="text" name="roll" id="roll">
+        <br>
+        <label for="course">Course : </label>
+        <input type="text" name="course" id="course">
+        <br>
+        <label for="events">Events : </label>
+        <input onclick="update_fee()" type="radio" value="Blind Coding">
+        <label for="blind">Blind Coding</label>
+        <input onclick="update_fee()" type="radio" value="Overnight Coding">
+        <label for="overnight">Overnight Coding</label>
+        <input onclick="update_fee()" type="radio" value="Games">
+        <label for="games">Games</label>
+        <input onclick="update_fee()" type="radio" value="Online Treasure Hunt">
+        <label for="tresure">Online Treasure Hunt</label>
+        <input onclick="update_fee()" type="radio" value="Puzzles">
+        <label for="puzzles">Puzzles</label>
+        <br>
+        <label for="fee">Total Fee : </label>
+        <input type="text" name="fee" id="fee" value="0" readonly>
+        <br>
+        <input class="btn" id="submit" type="button" value="ADD" onclick="adding('')">
+        <input class="btn" type="reset" value="CLEAR" id="clear">
+
+    </form>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll No.</th>
+                <th>Course</th>
+                <th>Events</th>
+                <th>Fee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+    </table>
+</body>
+<script>
+    function update_fee() {
+        var checkboxes = document.querySelectorAll('input[type="radio"]');
+        let fee = 0;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked == true) {
+                fee += 100;
+            }
+        }
+        document.getElementById('fee').value = fee;
+    }
+
+    function adding(id) {
+        var formData = new FormData(document.querySelector('form'));
+        const name = formData.get('name');
+        const roll = formData.get('roll');
+        const course = formData.get('course');
+        let Events = '';
+        var checkboxes = document.querySelectorAll('input[type="radio"]');
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked == true) {
+                Events += checkboxes[i].value;
+                Events += ',';
+            }
+        }
+        const fee = formData.get('fee');
+
+        $.post('/', { id, name, roll, course, Events, fee }, (data, status) => {
+            let html = `<tr id="${data}"><td>${name}</td><td>${roll}</td><td>${course}</td><td>${Events}</td><td>${fee}</td><td><button onclick="updating('${data}')">edit</button><button onclick="deleting('${data}')">delete</button></td></tr >`;
+            if (id == '') {
+                $('#table').append(html);
+            }
+            else {
+                document.getElementById(id).innerHTML = html;
+            }
+            $('#clear').click();
+        });
+    }
+    function updating(id) {
+
+    }
+    function deleteing(id) {
+
+    }
+
+</script>
+
+</html>
