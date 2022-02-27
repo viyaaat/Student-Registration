@@ -41,19 +41,20 @@
         <input class="btn" type="reset" value="CLEAR" id="clear">
 
     </form>
-    <table id="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Roll No.</th>
-                <th>Course</th>
-                <th>Events</th>
-                <th>Fee</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-
-    </table>
+    <div class="scroll">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No.</th>
+                    <th>Course</th>
+                    <th>Events</th>
+                    <th>Fee</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 </body>
 <script>
     function update_fee() {
@@ -106,6 +107,10 @@
         $.get('/delete?id=' + id);
         document.getElementById(id).innerHTML = '';
     }
+    const clr = document.querySelector('#clear');
+    clr.addEventListener('click', () => {
+        document.getElementById('submit').setAttribute("onclick", "adding('')");
+    });
 
 </script>
 

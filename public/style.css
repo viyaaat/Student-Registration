@@ -63,7 +63,6 @@ input[type="text"] {
 
 table {
   background-color: #f3ef124b;
-  margin-top: 50px;
   border-top: 2px solid black;
   width: 100%;
 }
@@ -78,4 +77,10 @@ td {
   text-align: left;
   border-bottom: 1px dashed rgb(12, 11, 11);
   border-left: 1px dashed rgb(12, 11, 11);
+}
+
+.scroll {
+  margin-top: 30px;
+  max-height: 210px;
+  overflow-y: scroll;
 }
