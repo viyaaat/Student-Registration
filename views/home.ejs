@@ -94,7 +94,13 @@
         });
     }
     function updating(id) {
-
+        const url = "/user?id=" + id;
+        $.get(url, (data, status) => {
+            document.getElementById('name').value = data.name;
+            document.getElementById('roll').value = data.roll;
+            document.getElementById('course').value = data.course;
+            document.getElementById('submit').setAttribute('onclick', `adding('${id}')`);
+        });
     }
     function deleteing(id) {
 
