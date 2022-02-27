@@ -57,3 +57,12 @@ app.get('/delete', (req, resp) => {
         resp.sendStatus(200);
     });
 })
+
+app.get('/all', (req, resp) => {
+    User.find().then((res) => {
+        resp.send(res);
+    })
+        .catch((err) => {
+            console.log(err);
+        })
+})

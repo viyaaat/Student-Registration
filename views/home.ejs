@@ -112,6 +112,16 @@
         document.getElementById('submit').setAttribute("onclick", "adding('')");
     });
 
+    window.onload = () => {
+        $.get('/all', (data, status) => {
+            //console.log(data);
+            for (obj of data) {
+                const id = obj._id;
+                let html = `<tr id="${id}"><td>${obj.name}</td><td>${obj.roll}</td><td>${obj.course}</td><td>${obj.Events}</td><td>${obj.fee}</td><td><button onclick="updating('${id}')">edit</button><button onclick="deleting('${id}')">delete</button></td></tr >`;
+                $('#table').append(html);
+            }
+        });
+    }
 </script>
 
 </html>

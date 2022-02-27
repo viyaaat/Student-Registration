@@ -63,7 +63,6 @@ input[type="text"] {
 
 table {
   background-color: #f3ef124b;
-  border-top: 2px solid black;
   width: 100%;
 }
 
@@ -81,6 +80,7 @@ td {
 
 .scroll {
   margin-top: 30px;
-  max-height: 210px;
+  border-top: 3px solid black;
+  height: 230px;
   overflow-y: scroll;
 }
