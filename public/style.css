@@ -36,7 +36,7 @@ input[type="text"] {
     rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
     rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
     rgba(44, 187, 99, 0.15) 0 16px 32px;
-  color: red;
+  color: rgb(255, 0, 242);
   cursor: pointer;
   display: inline-block;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
@@ -46,7 +46,7 @@ input[type="text"] {
   transition: all 250ms;
   border: 0;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   width: 150px;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -79,8 +79,28 @@ td {
 }
 
 .scroll {
-  margin-top: 30px;
+  margin-top: 27px;
   border-top: 3px solid black;
   height: 230px;
   overflow-y: scroll;
+}
+
+.edit {
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: none;
+  text-align: center;
+  background-color: green;
+  margin-left: 3px;
+  border: 0.5px solid black;
+}
+
+.delete {
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: none;
+  text-align: center;
+  background-color: red;
+  margin-left: 20px;
+  border: 0.5px solid black;
 }
